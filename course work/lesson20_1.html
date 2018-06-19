@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Lesson20_1</title>
+    <link href="http://fonts.googleapis.com/css?family=Arvo:400,700|Cookie" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .center {
+            width: 1000px;
+            margin: 0 auto;
+        }
+
+        body {
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+            font-size: 13px;
+        }
+
+        a,
+        a:active {
+            text-decoration: none;
+        }
+
+        header {
+            background: url(header-wrapper-bg.png) left top;
+            display: flex;
+            height: 187px;
+            align-items: center;
+            justify-content: space-between;
+            text-decoration: none;
+        }
+
+        header .center {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        header a {
+            color: white;
+        }
+
+        .logo {
+            display: block;
+            width: 220px;
+            height: 110px;
+            background: url(logo-bg.png) no-repeat;
+            text-decoration: none;
+            font-family: 'Cookie', cursive;
+            text-align: center;
+            font-size: 60px;
+            line-height: 110px;
+        }
+
+        .menu {
+            color: white;
+            font-size: 16px;
+            font-family: 'Arvo', serif;
+            letter-spacing: -1px;
+            padding: 5px;
+        }
+
+        header ul {
+            display: flex;
+            list-style-type: none;
+        }
+
+        header li {
+            display: flex;
+            list-style-type: none;
+            margin-right: 40px;
+            line-height: 20px;
+        }
+
+        nav li:last-child {
+            margin-right: 135px;
+        }
+
+        nav a {
+            padding: 5px;
+        }
+
+        .active {
+            background: #881D1D;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+
+        .active a {
+            padding: 5px 15px;
+        }
+
+        .info {
+            background: url(banner-wrapper-bg.png) repeat;
+            padding: 33px 0;
+        }
+
+        .banner h2 {
+            text-align: center;
+            font-family: 'Cookie', cursive;
+            color: white;
+            font-size: 35px;
+            background: url(banner-caption-bg.png)no-repeat left bottom;
+            width: 100%;
+            border-radius: 0 0 9px 9px;
+            padding: 17px 0;
+            align-self: flex-end;
+            font-weight: normal;
+        }
+
+        .banner {
+            margin: 0 auto;
+            background: url(banner-image.jpg);
+            height: 278px;
+            width: 960px;
+            background-size: cover;
+            display: flex;
+            border-radius: 9px;
+        }
+
+        main {
+            background: url(page-wrapper-bg.png)repeat;
+            padding: 30px 0;
+        }
+
+        main .center {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            justify-content: space-between;
+        }
+
+        .post {
+            width: 630px;
+            background-color: white;
+            padding: 30px 0;
+            border: 1px solid #E5D0D0;
+            border-radius: 5px;
+        }
+
+        .posted {
+            font-size: 16px;
+            font-family: 'Arvo', serif;
+            line-height: 38px;
+            letter-spacing: -1px;
+            padding-left: 30px;
+            background: url(post-posted-bg.png) no-repeat left top;
+            color: white;
+        }
+
+        .posted a {
+            color: white;
+            text-decoration: underline;
+        }
+
+        .note {
+            padding: 30px 30px 0 30px;
+        }
+
+        .title {
+            font-size: 34px;
+            display: block;
+            padding-bottom: 20px;
+            letter-spacing: -2px;
+            font-family: 'Arvo', serif;
+            color: #4E2B22;
+            font-weight: 400;
+        }
+
+        .pic_1 {
+            background: url(pics01.jpg) no-repeat;
+            border-radius: 5px;
+            display: block;
+            width: 570px;
+            height: 196px;
+            background-size: cover;
+        }
+
+        .note p {
+            line-height: 25px;
+            margin-top: 25px;
+        }
+
+        .post .references {
+            display: block;
+            height: 66px;
+            margin-top: 30px;
+            padding: 0 25px;
+            background: url(posted-meta-bg.png) no-repeat left top;
+            font-family: 'Arvo', serif;
+            font-size: 16px;
+            font-weight: normal;
+            color: #572F26;
+        }
+
+        .references a {
+            text-decoration: underline;
+            color: inherit;
+        }
+
+        .references a:hover {
+            text-decoration: none;
+        }
+
+        .tags {
+            float: left;
+            line-height: 66px;
+        }
+
+        .comments {
+            float: right;
+            line-height: 66px;
+        }
+
+        main aside {
+            width: 330px;
+            color: #E1C8C5;
+            border-radius: 5px;
+
+        }
+
+        .top_background {
+            height: 15px;
+            background: url(sidebar-bg-01.png) no-repeat left top;
+        }
+
+        .bottom_background {
+            height: 15px;
+            background: url(sidebar-bg-03.png) no-repeat left top;
+        }
+
+        aside p {
+            padding: 0 60px 0 30px;
+            text-shadow: 1px 1px 0 rgba(54, 29, 24, 1);
+            line-height: 25px;
+        }
+
+        aside ul li {
+            border-top: 1px solid #371E18;
+            margin: 0 60px 0 30px;
+            padding: 10px 0 10px 0;
+            list-style-type: none;
+        }
+
+        aside a {
+            color: white;
+        }
+
+        aside ul li:first-child {
+            border-top: none;
+        }
+
+        aside p:last-child {
+            padding-bottom: 10px;
+        }
+
+        aside .content_background {
+            overflow: hidden;
+            background: url(sidebar-bg-02.png) repeat-y left top;
+        }
+
+        aside .posted {
+            width: 295px;
+            background: url(sidebar-title-bg.png) no-repeat right top;
+            font-weight: 400px;
+            margin: 20px 0;
+        }
+
+        footer {
+            background: url(footer-content-bg-01.png) repeat;
+        }
+
+        footer .content {
+            padding: 40px 0 30px 0;
+            background: url(footer-content-bg-02.png) repeat-x left top;
+        }
+
+        footer .content .center {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        footer .box_group {
+            width: 300px;
+            margin-right: 30px;
+        }
+
+        footer .box_group h2 {
+            padding-bottom: 20px;
+            font-family: 'Arvo', serif;
+            font-size: 16px;
+            color: white;
+            font-weight: 400;
+
+        }
+
+        footer .text_background {
+            padding: 20px 30px 10px 30px;
+            background: url(box-widget-bg-02.png) repeat left top;
+        }
+
+        footer .box_group p {
+            text-shadow: 1px 1px 1px rgba(57, 27, 22, 1);
+            color: #E1C8C5;
+            line-height: 25px;
+        }
+
+        footer .background_top_f {
+            height: 15px;
+            background: url(box-widget-bg-01.png) no-repeat left top;
+        }
+
+        footer .background_bottom_f {
+            height: 15px;
+            background: url(box-widget-bg-03.png) no-repeat left top;
+        }
+
+
+
+        .copyright {
+            height: 155px;
+            background: url(footer-bg.png) repeat-x left top;
+        }
+
+        .copyright p {
+            margin: 0;
+            padding-top: 40px;
+            text-align: center;
+            text-shadow: 1px 1px 2px rgba(39, 20, 17, 1);
+            color: #784F45;
+        }
+
+        .copyright a {
+            text-decoration: underline;
+            color: inherit;
+        }
+
+        .copyright a:hover {
+            text-decoration: none;
+        }
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="center">
+            <a href="#" class="logo">Elysa4t</a>
+            <nav class="menu">
+                <ul>
+                    <li class="active"><a href="#">Home</a></li>
+                    <li><a href="">Archives</a></li>
+                    <li><a href="">Gallery</a></li>
+                    <li><a href="">About</a></li>
+                    <li><a href="">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <section class="info">
+        <div class="center">
+            <img href="">
+            <div class="banner">
+                <h2>Magna sed phasellus consequat lorem ipsum dolor</h2>
+            </div>
+        </div>
+    </section>
+    <main>
+        <div class="center">
+            <div class="post">
+                <div class="posted">Posted by <a href="#">Someone</a> on April 14, 2012</div>
+                <div class="note">
+                    <h2 class="title">Lorem ipsum sed veroeros amet</h2>
+                    <a href="#" class="pic_1"></a>
+                    <p>Nam vestibulum hendrerit orci, sed pharetra elit elementum in. Donec in eros sed odio varius tempus. Vestibulum quis quam et velit rutrum ornare nec a massa. Curabitur malesuada ullamcorper nunc in suscipit. Donec semper venenatis dui sed facilisis. Morbi congue facilisis ante in feugiat. Mauris consectetur magna eu enim sagittis et bibendum lacus imperdiet. Maecenas semper massa ac odio ornare sodales. Nunc rhoncus vulputate nisi sed malesuada. Fusce ac mauris dui, id luctus ligula. Integer hendrerit.
+                    </p>
+                    <div class="references">
+                        <p><span class="tags">Posted in <a href="#">News</a>, <a href="#">Design</a>, <a href="#">Other</a></span><span class="comments"><a href="#">235 Comments</a></span></p>
+                    </div>
+                </div>
+            </div>
+            <aside>
+                <div class="top_background"></div>
+                <div class="content_background">
+                    <div>
+                        <div class="posted">About Elysa4t</div>
+                        <p>Mauris consectetur magna eu enim sagittis et bibendum lacus imperdiet. Maecenas semper massa amet et odio mauris dui, id luctus amet ligula.</p>
+                    </div>
+                    <div>
+                        <div class="posted">Recent Post</div>
+                        <ul>
+                            <li><a href="#">Hendrerit orci sed pharetra elit</a></li>
+                            <li><a href="#">Donec in eros odio varius tempus</a></li>
+                            <li><a href="#">Vestibulum quis quam et velit</a></li>
+                            <li><a href="#">Rutrum ornare nec sed curabitur</a></li>
+                            <li><a href="#">Malesuada ullamcorper nunc</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="posted">Something Else</div>
+                        <p>Mauris consectetur magna eu enim sagittis et bibendum lacus imperdiet. Maecenas semper massa amet et odio mauris dui, id luctus amet ligula.</p>
+                    </div>
+                </div>
+                <div class="bottom_background"></div>
+            </aside>
+        </div>
+    </main>
+    <footer>
+        <div class="content">
+            <div class="center">
+                <div class="box_group">
+                    <div class="background_top_f"></div>
+                    <div class="text_background">
+                        <h2>Just another widget</h2>
+                        <p>Mauris consectetur magna tempus enim sagittis et bibendum lacus et imperdiet. Maecenas semper et massa amet et odio mauris dui, id luctus amet ligula.</p>
+                    </div>
+                    <div class="background_bottom_f"></div>
+                </div>
+                <div class="box_group">
+                    <div class="background_top_f"></div>
+                    <div class="text_background">
+                        <h2>Just another widget</h2>
+                        <p>Mauris consectetur magna tempus enim sagittis et bibendum lacus et imperdiet. Maecenas semper et massa amet et odio mauris dui, id luctus amet ligula.</p>
+                    </div>
+                    <div class="background_bottom_f"></div>
+                </div>
+
+                <div class="box_group">
+                    <div class="background_top_f"></div>
+                    <div class="text_background">
+                        <h2>Just another widget</h2>
+                        <p>Mauris consectetur magna tempus enim sagittis et bibendum lacus et imperdiet. Maecenas semper et massa amet et odio mauris dui, id luctus amet ligula.</p>
+                    </div>
+                    <div class="background_bottom_f"></div>
+                </div>
+            </div>
+        </div>
+        <section class="copyright">
+            <div class="center">
+                <p>© Your Website Name | Elysa4T by <a href="#">4Templates</a> | Photos by <a href="#">Fotogrph</a></p>
+            </div>
+        </section>
+    </footer>
+
+</body>
+
+</html>
